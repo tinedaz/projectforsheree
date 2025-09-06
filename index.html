@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Sheree</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Introduction Screen Styles */
+        .intro-welcome-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            opacity: 1;
+            transition: opacity 2s ease;
+        }
+
+        .intro-welcome-screen.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .main-title {
+            font-family: 'Pacifico', cursive;
+            font-size: 4rem;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 2rem;
+            opacity: 0;
+        }
+
+        .typewriter-text {
+            overflow: hidden;
+            border-right: 3px solid #fff;
+            white-space: nowrap;
+            margin: 0 auto;
+            animation: blink-caret 1s infinite;
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: #fff; }
+        }
+
+        .continue-text {
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: #fff;
+            text-align: center;
+            opacity: 0;
+            animation: pulse 2s infinite;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+
+        .continue-text:hover {
+            transform: scale(1.05);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 1; }
+        }
+
+        /* Hide main content initially */
+        body.intro-active {
+            overflow: hidden;
+        }
+
+        body.intro-active .verification-screen,
+        body.intro-active .loading-screen,
+        body.intro-active .main-content {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Responsive adjustments for the main title */
+        @media (max-width: 768px) {
+        .second-section h1 {
+        font-size: 10vw; /* Use viewport width for a scalable font size */
+        padding: 0 15px; /* Add some padding to prevent the text from touching the edges */
+        text-align: center; /* Center the text for a better fit */
+  }
+}
+    </style>
+</head>
+<body class="intro-active">
+    <!-- Introduction Welcome Screen -->
+    <div class="intro-welcome-screen" id="intro-welcome-screen">
+        <div class="main-title" id="main-title">
+            <span class="typewriter-text" id="typewriter-text"></span>
+        </div>
+        <div class="continue-text" id="continue-text">click anywhere to continue</div>
+    </div>
+
+    <div class="verification-screen" id="verification-screen">
+        <img src="resources/baby.jpg" alt="baby" class="verification-baby-img">
+        <h2 class="verification-text">For Sheree only, verify your identity</h2>
+        <input type="text" class="answer-input" id="verificationInput" placeholder="name of your baby">
+        <button class="btn submit-btn" onclick="checkVerification()">submit</button>
+        <p class="error-message" id="verificationErrorMessage"></p>
+    </div>
+
+    <div class="loading-screen" id="loading-screen">
+        <h1 class="loading-text">loading something special</h1>
+        <div class="loading-dots">
+            <span>.</span>
+            <span>.</span>
+            <span>.</span>
+        </div>
+    </div>
+
+    <div class="main-content" id="main-content">
+        <!-- First Intro Screen -->
+        <div class="intro-screen" id="intro-screen-1">
+            <div class="image" id="image"> 
+                <img src="resources/picture.jpg" alt="sheree-shrek" class="sheree-shrek">
+            </div>
+            <div class="intro" id="intro">
+                <h1>yownnn ikaw ngaaa, hi my baby shewee!</h1>
+            </div>
+            <button class="btn" onclick="goToIntroScreen(2)">ragghhhh</button>
+            <img src="resources/cat-pop.gif" alt="cat-pop" class="cat-pop">
+        </div>
+
+        <!-- Second Intro Screen -->
+        <div class="intro-screen" id="intro-screen-2" style="display: none; opacity: 0;">
+            <button class="back-btn" onclick="goToIntroScreen(1)">← back</button>
+            <div class="image"> 
+                <img src="resources/cat_cycle_heart.gif" alt="cat-cycle-heart" class="intro-media">
+            </div>
+            <div class="intro">
+                <h1>this is the project i made for you!</h1>
+            </div>
+            <button class="btn" onclick="goToIntroScreen(3)">omo jinjja</button>
+        </div>
+
+        <!-- Third Intro Screen -->
+        <div class="intro-screen" id="intro-screen-3" style="display: none; opacity: 0;">
+            <button class="back-btn" onclick="goToIntroScreen(2)">← back</button>
+            <div class="image"> 
+                <img src="resources/rat-cute-cry.gif" alt="rat-cute-cry" class="intro-media">
+            </div>
+            <div class="intro">
+                <h1>i want to impress you, hope you like this po 🥺</h1>
+            </div>
+            <button class="btn" onclick="start()">tuhraaa?</button>
+        </div>
+    </div>
+
+    <div class="watermark">dazz</div>
+    
+    <script>
+        // Introduction Screen Animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const introScreen = document.getElementById('intro-welcome-screen');
+            const mainTitle = document.getElementById('main-title');
+            const typewriterText = document.getElementById('typewriter-text');
+            const continueText = document.getElementById('continue-text');
+            const text = 'Courting Project for Sheree';
+            
+            // Start typewriter effect after a short delay
+            setTimeout(() => {
+                mainTitle.style.opacity = '1';
+                typewriterAnimation(text, typewriterText);
+            }, 500);
+
+            // Click anywhere to continue
+            setTimeout(() => {
+                continueText.style.opacity = '1';
+                
+                // Add click listener to entire screen
+                introScreen.addEventListener('click', function() {
+                    startMainWebsite();
+                });
+
+                // Also add keyboard listener for spacebar or enter
+                document.addEventListener('keydown', function(e) {
+                    if (e.code === 'Space' || e.code === 'Enter') {
+                        startMainWebsite();
+                    }
+                });
+            }, 4000);
+        });
+
+        function typewriterAnimation(text, element, callback) {
+            let i = 0;
+            element.innerHTML = '';
+            
+            function typeChar() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(typeChar, 75); // Adjust speed here (150ms per character)
+                } else {
+                    // Remove the cursor after typing is complete
+                    setTimeout(() => {
+                        element.style.borderRight = 'none';
+                        // Call the callback function when animation is complete
+                        if (callback) callback();
+                    }, 1000);
+                }
+            }
+            
+            typeChar();
+        }
+
+        function startMainWebsite() {
+            const introScreen = document.getElementById('intro-welcome-screen');
+            const body = document.body;
+            
+            // Fade out intro screen
+            introScreen.classList.add('fade-out');
+            
+            setTimeout(() => {
+                // Remove intro-active class from body to show main content
+                body.classList.remove('intro-active');
+                // Hide intro screen completely
+                introScreen.style.display = 'none';
+            }, 750);
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
