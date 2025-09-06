@@ -242,7 +242,7 @@ function showLetter() {
 
 const message = `Lorr Sheree, my baby, I hope you’re doing good today. But if you’re not, I’ll be right here, whatever you feel, I’ll feel it with you.
 
-Something struck me. I’m still protecting myself and think you’re giving me less. But you’re not; it’s just me thinking about it. Because when I think of it, you’re actually giving more. That hits me, and I realized that I’m not just a guy in your life but someone with a place in your life. That changes my perspective, and I feel more in love with you. I assure you once again that everything will be alright, and I’ll show more and make you feel more loved from now on.
+Something struck me. I’m still protecting myself and think you’re giving me less. But you’re not; it’s just me thinking about it. Because when I think of it, you’re actually giving more. That hits me, and I realized that I’m not just a guy that has a crush on you but someone with a place in your life. That changes my perspective, and I feel more in love with you. I assure you once again that everything will be alright, and I’ll show more and make you feel more loved from now on.
 
 I know I’ve not been doing well for us in the past few days, and I’m sorry I didn’t notice you last time.
 I’ll make bawi my baby, okay? Trust me. Please hug na and kiss na :( I miss you so much, Sheree.`;
@@ -659,5 +659,6 @@ function showGiftSection() {
     }, 600);
 
 }
+
 
 
