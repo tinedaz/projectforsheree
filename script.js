@@ -372,8 +372,17 @@ function showMomentsCategory(category) {
                     <p>Sa sobrang pagka-miss ko sayo, iniyakan kita</p>
                 </div>
                 <div class="fact-item">
-                    <h3>Fun Fact #4</h3>
-                    <p>Sa sobrang pagka-miss ko sayo, iniyakan kita</p>
+                    <h3>Kinabahan moments</h3>
+                    <p>Nung nag-cr tayo after ng sinehan, I can't find my phone, nag-panic ako kasi parang tinanggal sa cord. Tas ayun nasa maliit lang pala na zipper hehe.</p>
+                </div>
+                </div>
+                <div class="fact-item">
+                    <h3>Random Fact</h3>
+                    <p>Since nung inunan ko si KFC, mas sumarap yung tulog ko.</p>
+                </div>
+                <div class="fact-item">
+                    <h3>Random Fact</h3>
+                    <p>Kapag miss kita, I spray a little bit sa wrist nung binigay mo saking pabango.</p>
                 </div>
             </div>
         `;
@@ -644,4 +653,5 @@ function showGiftSection() {
         }, 100);
         
     }, 600);
+
 }
