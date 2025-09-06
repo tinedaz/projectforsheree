@@ -359,6 +359,7 @@ function showMomentsCategory(category) {
         // Show facts content instead of gallery
         galleryContainer.innerHTML = `
             <div class="facts-content">
+                <div class="facts-content">
                 <div class="fact-item">
                     <h3>Fun Fact #1</h3>
                     <p>80+ days na sana tiktok streak natin, na-end nang 2 beses</p>
@@ -372,9 +373,13 @@ function showMomentsCategory(category) {
                     <p>Sa sobrang pagka-miss ko sayo, iniyakan kita</p>
                 </div>
                 <div class="fact-item">
-                    <h3>Kinabahan moments</h3>
-                    <p>Nung nag-cr tayo after ng sinehan, I can't find my phone, nag-panic ako kasi parang tinanggal sa cord. Tas ayun nasa maliit lang pala na zipper hehe.</p>
+                    <h3>Fun Fact #4</h3>
+                    <p>Sa sobrang pagka-miss ko sayo, iniyakan kita</p>
                 </div>
+                 <div class="fact-item">
+                    <h3>Kinabahan moments</h3>
+                    <p>Nung nag-cr tayo after ng sine, I can't find my phone, nag-panic ako kasi parang tinanggal sa cord.</p>
+                    <p>Tas ayun nasa maliit lang pala na zipper hehe.</p>
                 </div>
                 <div class="fact-item">
                     <h3>Random Fact</h3>
@@ -655,3 +660,4 @@ function showGiftSection() {
     }, 600);
 
 }
+
