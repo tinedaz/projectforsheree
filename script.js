@@ -359,7 +359,6 @@ function showMomentsCategory(category) {
         // Show facts content instead of gallery
         galleryContainer.innerHTML = `
             <div class="facts-content">
-                <div class="facts-content">
                 <div class="fact-item">
                     <h3>Fun Fact #1</h3>
                     <p>80+ days na sana tiktok streak natin, na-end nang 2 beses</p>
@@ -660,4 +659,5 @@ function showGiftSection() {
     }, 600);
 
 }
+
 
